@@ -1,6 +1,7 @@
 package edu.csumb.astubler.LoginandLanding;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.room.Room;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -64,6 +65,15 @@ public class ExampleInstrumentedTest {
         User retrieveUser = mUserDAO.getUserByUsername("username");
         assertEquals(newUser.getPassword(), retrieveUser.getPassword());
         assertNotEquals("abc", newUser.getPassword());
+    }
+
+    @Test
+    public void testFactoryPattern() {
+        Intent intent = IntentHelper.basicIntent(InstrumentationRegistry.getInstrumentation().getTargetContext(), LoginChecked.class);
+        assertNotNull(intent);
+        User newUser = new User("aUser", "password");
+        Intent intent2 = IntentHelper.usernameIntent(InstrumentationRegistry.getInstrumentation().getTargetContext(), LoginChecked.class, newUser.getUserName());
+        assertEquals(intent2.getStringExtra("username"), "aUser");
     }
 
 }
