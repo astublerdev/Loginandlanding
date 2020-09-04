@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LoginandLanding</string>
+    <string name="passwordHint">Password</string>
+    <string name="usernameHint">Username</string>
+    <string name="LoginText">Welcome! Please Login</string>
+    <string name="BtnText">Login</string>
+    <string name="LockText">You Are Locked Out</string>
+</resources>
